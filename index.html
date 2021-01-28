@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="uk-background-secondary">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/css/uikit.min.css" />
+    <link href="./assets/css/style.css" rel="stylesheet">
+
+    <title>Calcular IMC</title>
+
+    <link rel="shortcut icon" href="https://icon-library.com/images/calculator-icon-vector/calculator-icon-vector-3.jpg" type="image/x-icon">
+</head>
+
+<body>
+
+    <section class="uk-container uk-container-xsmall uk-background-default uk-border-rounded uk-box-shadow-large">
+
+        <h1>Calculadora de IMC</h1>
+
+        <!-- tabela IMC -->
+        <table class="uk-table uk-table-striped uk-table-hover">
+            <thead>
+                <tr>
+                    <th>IMC</th>
+                    <th>CLASSIFICAÇÃO</th>
+                    <th>OBESIDADE <small>(grau)</small></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Menor que 18.5</td>
+                    <td>Magreza</td>
+                    <td class="uk-text-center">-</td>
+                </tr>
+
+                <tr>
+                    <td>Entre 18.5 e 24.9</td>
+                    <td>Normal</td>
+                    <td class="uk-text-center">-</td>
+                </tr>
+
+                <tr>
+                    <td>Entre 25 e 29.9</td>
+                    <td>Sobrepeso</td>
+                    <td>Grau 1</td>
+                </tr>
+
+                <tr>
+                    <td>Entre 30 e 39.99</td>
+                    <td>Obesidade</td>
+                    <td>Grau 2</td>
+                </tr>
+
+                <tr>
+                    <td>Maior que 40</td>
+                    <td>Obesidade grave</td>
+                    <td>Grau 3</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form id="formulario">
+            <h3>Peso:</h3>
+            <input class="uk-input uk-border-rounded" id="peso" type="text">
+
+            <h3>Altura:</h3>
+            <input class="uk-input uk-border-rounded" id="altura" type="text">
+
+            <button class="uk-button uk-button-primary uk-border-rounded"
+                onclick="calcular(document.querySelector('#peso').value, document.querySelector('#altura').value)">CALCULAR</button>
+        </form>
+
+        <div id="invalido">
+        </div>
+
+        <div id="resultado">
+        </div>
+
+    </section>
+
+    <script src="./assets/js/main.js"></script>
+    <!-- UI kit css -->
+    <div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js"
+            integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA=="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js"
+            integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw=="
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>
