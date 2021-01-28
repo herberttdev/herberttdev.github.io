@@ -1,5 +1,6 @@
 body {
     padding-top: 24px;
+    padding-bottom: 24px;
 }
 
 input {
@@ -22,9 +23,4 @@ button {
 
 h3 {
     margin-top: 0px;
-}
-
-section {
-    padding: 15px !important;
-    margin-bottom: 10px !important;
 }
