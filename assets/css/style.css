@@ -7,6 +7,8 @@ input {
     width: 100% !important;
 }
 
+button {
+    display: block !important;
     width: 100% !important;
 }
 
@@ -20,4 +22,9 @@ button {
 
 h3 {
     margin-top: 0px;
+}
+
+section {
+    padding: 15px;
+    margin-bottom: 10px;
 }
