@@ -4,6 +4,8 @@ axios('https://economia.awesomeapi.com.br/json/all/usd')
 const usdInput = document.querySelector('.usdInput')
 const brlInput = document.querySelector('.brlInput')
 
+usdInput.focus()
+
 function exibirValor(json) {
 
     brlInput.setAttribute('placeholder', (Number(json.USD.bid)).toFixed(2))
