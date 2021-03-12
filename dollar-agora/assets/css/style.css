@@ -6,6 +6,7 @@ input {
     height: 55px !important;
     border-radius: 7px !important;
     color: #999 !important;
+    text-align: center;
 }
 
 input:hover {
