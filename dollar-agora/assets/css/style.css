@@ -15,4 +15,9 @@ input:hover {
 #icone {
     top: 0% !important;
     bottom: -100px !important;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: max-content;
+    max-width: 100%;
+    box-sizing: border-box;
 }
