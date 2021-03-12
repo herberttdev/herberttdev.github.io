@@ -1,5 +1,19 @@
-axios('https://economia.awesomeapi.com.br/json/all/usd')
-    .then(response => exibirValor(response.data))
+// vai fazer o primeiro request
+setTimeout(function () {
+    axios('https://economia.awesomeapi.com.br/json/all/usd')
+        .then(response => exibirValor(response.data))
+    console.log('primeira request executada')
+}, 1)
+
+
+// vai fzr a request de 30 em 30 segundos
+let acumulador = 1
+setInterval(function () {
+    axios('https://economia.awesomeapi.com.br/json/all/usd')
+        .then(response => exibirValor(response.data))
+    console.log(`Atualizou! [${acumulador}]`)
+    acumulador++
+}, (30 * 1000))
 
 const usdInput = document.querySelector('.usdInput')
 const brlInput = document.querySelector('.brlInput')
@@ -11,8 +25,8 @@ function exibirValor(json) {
     brlInput.setAttribute('placeholder', (Number(json.USD.bid)).toFixed(2))
 
     document.addEventListener('click', click => {
-        if(click.target.classList.contains('usdInput')) click.target.select()
-        if(click.target.classList.contains('brlInput')) click.target.select()
+        if (click.target.classList.contains('usdInput')) click.target.select()
+        if (click.target.classList.contains('brlInput')) click.target.select()
     })
 
     document.addEventListener('change', e => {
