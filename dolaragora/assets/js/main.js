@@ -40,7 +40,7 @@ function exibirValor(json) {
     })
 }
 
-function converterUSDBRL(usdEmBrl, usdValue) {
+function converterUSDBRL(usdEmBrl) {
     try {
         eval(usdInput.value)
     } catch {
@@ -48,12 +48,12 @@ function converterUSDBRL(usdEmBrl, usdValue) {
         return
     }
 
-    usdValue = (usdValue).replace(',', '.')
-    usdInput.value = Number(usdValue).toFixed(2)
-    brlInput.value = (eval(usdValue * usdEmBrl)).toFixed(2)
+    usdInput.value = (usdInput.value).replace(',', '.')
+    usdInput.value = Number(usdInput.value).toFixed(2)
+    brlInput.value = (eval(usdInput.value * usdEmBrl)).toFixed(2)
 }
 
-function converterBRLUSD(usdEmBrl, brlValue) {
+function converterBRLUSD(usdEmBrl) {
     try {
         eval(brlInput.value)
     } catch {
@@ -61,7 +61,7 @@ function converterBRLUSD(usdEmBrl, brlValue) {
         return
     }
 
-    brlValue = (brlValue).replace(',', '.')
-    brlInput.value = Number(brlValue).toFixed(2)
-    usdInput.value = (eval(brlValue / usdEmBrl)).toFixed(2)
+    brlInput.value = (brlInput.value).replace(',', '.')
+    brlInput.value = Number(brlInput.value).toFixed(2)
+    usdInput.value = (eval(brlInput.value / usdEmBrl)).toFixed(2)
 }
