@@ -3,7 +3,7 @@ setTimeout(function () {
     axios('https://economia.awesomeapi.com.br/json/all/usd')
         .then(response => exibirValor(response.data))
     console.log('primeira request executada')
-}, 1)
+}, 0)
 
 
 // vai fzr a request de 30 em 30 segundos
