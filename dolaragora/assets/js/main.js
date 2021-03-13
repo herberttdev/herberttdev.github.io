@@ -31,16 +31,16 @@ function exibirValor(json) {
 
     document.addEventListener('change', e => {
         if (e.target.classList.contains('usdInput')) {
-            converterUSDBRL(json.USD.bid)
+            converterUSDBRL(json.USD.bid, usdInput.value)
         }
 
         if (e.target.classList.contains('brlInput')) {
-            converterBRLUSD(json.USD.bid)
+            converterBRLUSD(json.USD.bid, brlInput.value)
         }
     })
 }
 
-function converterUSDBRL(usdEmBrl) {
+function converterUSDBRL(usdEmBrl, usdValue) {
     try {
         eval(usdInput.value)
     } catch {
@@ -48,11 +48,12 @@ function converterUSDBRL(usdEmBrl) {
         return
     }
 
-    usdInput.value = Number(usdInput.value).toFixed(2)
-    brlInput.value = (eval(usdInput.value * usdEmBrl)).toFixed(2)
+    usdValue = (usdValue).replace(',', '.')
+    usdInput.value = Number(usdValue).toFixed(2)
+    brlInput.value = (eval(usdValue * usdEmBrl)).toFixed(2)
 }
 
-function converterBRLUSD(usdEmBrl) {
+function converterBRLUSD(usdEmBrl, brlValue) {
     try {
         eval(brlInput.value)
     } catch {
@@ -60,6 +61,7 @@ function converterBRLUSD(usdEmBrl) {
         return
     }
 
-    brlInput.value = Number(brlInput.value).toFixed(2)
-    usdInput.value = (eval(brlInput.value / usdEmBrl)).toFixed(2)
+    brlValue = (brlValue).replace(',', '.')
+    brlInput.value = Number(brlValue).toFixed(2)
+    usdInput.value = (eval(brlValue / usdEmBrl)).toFixed(2)
 }
