@@ -48,6 +48,11 @@ function converterUSDBRL(usdEmBrl) {
         return
     }
 
+    if (conversaoBloqueada === true) {
+        usdInput.value = null
+        brlInput.value = null
+    }
+
     usdInput.value = (usdInput.value).replace(',', '.')
     usdInput.value = Number(usdInput.value).toFixed(2)
     brlInput.value = (eval(usdInput.value * usdEmBrl)).toFixed(2)
@@ -61,7 +66,51 @@ function converterBRLUSD(usdEmBrl) {
         return
     }
 
+    if (conversaoBloqueada === true) {
+        usdInput.value = null
+        brlInput.value = null
+    }
+
     brlInput.value = (brlInput.value).replace(',', '.')
     brlInput.value = Number(brlInput.value).toFixed(2)
     usdInput.value = (eval(brlInput.value / usdEmBrl)).toFixed(2)
 }
+
+let conversaoBloqueada = false
+setTimeout(() => {
+    conversaoBloqueada = true
+    const apoieLink = document.querySelectorAll('.apoieLink')
+
+    document.querySelector('.usdInput').setAttribute('disabled', 'true')
+    
+    document.querySelector('.usdInput').style.cursor = 'not-allowed'
+
+    document.querySelector('.brlInput').setAttribute('disabled', 'true')
+
+    document.querySelector('.brlInput').style.cursor = 'not-allowed'
+
+    apoieLink[0].classList.add('uk-hidden')
+    apoieLink[1].classList.add('uk-hidden')
+
+    const divDesbloqConvers = document.querySelector('.desbloquearConversao')
+    divDesbloqConvers.classList.remove('uk-hidden')
+    divDesbloqConvers.classList.add('uk-animation-shake')
+}, 30 * 1000)
+
+document.addEventListener('click', click => {
+    const clickTarget = click.target
+    if (clickTarget === document.getElementById('desbloquearConversao')) {
+        conversaoBloqueada = false
+        clickTarget.classList.add('uk-hidden')
+
+        document.querySelector('.usdInput').removeAttribute('disabled')
+        document.querySelector('.usdInput').style.cursor = 'text'
+
+        document.querySelector('.brlInput').removeAttribute('disabled')
+        document.querySelector('.brlInput').style.cursor = 'text'
+
+        const apoieLink = document.querySelectorAll('.apoieLink')
+        apoieLink[0].classList.remove('uk-hidden')
+        apoieLink[1].classList.remove('uk-hidden')
+    }
+})
